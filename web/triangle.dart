@@ -17,6 +17,15 @@ class Triangle {
     
     this.el = new DivElement();
     this.el.className = 'tri';
+    
+//    this.setupEvents();
+  }
+  
+  
+  setupEvents() {
+    this.el.addEventListener('click', (e) {
+       this.el.classes.add('broken');
+    });
   }
   
 }

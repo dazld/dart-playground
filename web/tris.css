@@ -25,10 +25,16 @@ body {
   margin-top: -310px;
 }
 
-.tri.active {
-  -webkit-transform:rotateY(90deg) !important;
-  
+.tri.broken {
+  -webkit-transform:rotateY(90deg) !important; 
 }
+
+.tri.active {
+  -webkit-transform:rotateY(90deg) !important; 
+}
+
+
+
 
 .tri {
   

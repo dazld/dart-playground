@@ -30,12 +30,30 @@ class Stage {
       this.tris.add(tri);
       this.root.append(tri.el);
     }
+    
+    var g = new Random();
+    
+    this.root.addEventListener('mouseover', (e) {
+      e.target.classes.add('broken');
+      var ms = 1000 + g.nextInt(2000);
+      Duration duration = new Duration(milliseconds: ms);
+      new Timer(duration, () => e.target.classes.remove('broken'));
+    });
+    
+    document.body.addEventListener('click', (e) => this.resetStage());
 
 
+    this.resetStage();
+  }
+  
+  resetStage() {
+    if (refresh != null) {
+      refresh.cancel();
+      refresh = null;
+    }
+   
     this.say('   Hello').then((a) => this.say('    Dart')).then((a) => this.say(
-        '      :)')).then((a) => this.startClock());
-
-
+            '      :)')).then((a) => this.startClock());
   }
 
   say(String word) {
