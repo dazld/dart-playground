@@ -1,4 +1,7 @@
-
+html {
+  height: 100%;
+  background: -webkit-linear-gradient(#1cb4a9, #1178bc);
+}
 body {
   background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;
@@ -14,7 +17,7 @@ body {
   left: 50%;
   margin-left: -450px;
   width: 980px;
-  margin-top: -260px;
+  margin-top: -310px;
 }
 
 .tri.active {
