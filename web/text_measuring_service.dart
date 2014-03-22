@@ -14,14 +14,16 @@ class TextMeasuringService {
 
     _canvas = new CanvasElement(width: width, height: height);
     _ctx = _canvas.getContext('2d');
-
+    
     _canvas.setAttribute('width', width.toString());
     _canvas.setAttribute('height', height.toString());
-
+    _ctx.setTransform(1, 0, 0.9, 1, 0, 0);
     var metrics = _ctx.measureText(text);
 
-    _ctx.font = '100px Monaco';
+    _ctx.font = '100px Arial';
     _ctx.fillText(text, 0, 100, width);
+    
+    
   }
 
   List<Point> measure(int boxSize) {

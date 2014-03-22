@@ -51,7 +51,7 @@ class Stage {
       points.forEach((point){
         var x = point.x;
         var y = point.y;
-        var idx = y * 120 + x + 25;
+        var idx = y * 120 + x + 10;
         freshTris.add(this.tris[idx]);
       });
       
@@ -75,7 +75,7 @@ class Stage {
   getPoints (text){
     
     var tms = new TextMeasuringService(text:text, width:900, height: 300);
-    var points = tms.measure(5);
+    var points = tms.measure(4);
     return points;
     
   }
