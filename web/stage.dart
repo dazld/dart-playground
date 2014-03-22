@@ -42,10 +42,12 @@ class Stage {
   update ([delta = null]){
     var now = new DateTime.now();
     var time = now.toString().split(' ')[1].split('.')[0];
-    
+    //this.root.querySelectorAll('.active').classes.remove('active');
    // print(time);
     window.requestAnimationFrame((i){
-      this.root.querySelectorAll('.active');
+    
+      
+      
       var freshTris = new Set();  
       var points = this.getPoints(time);
       points.forEach((point){
@@ -53,7 +55,10 @@ class Stage {
         var y = point.y;
         var idx = y * 120 + x + 10;
         freshTris.add(this.tris[idx]);
+        
+        
       });
+      
       
       var outdated = this.activeTris.difference(freshTris);
       

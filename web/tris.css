@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  background: -webkit-linear-gradient(#1cb4a9, #1178bc);
+  background: -webkit-linear-gradient(#1178bc, #0b9388);
 }
 body {
   background-color: #F8F8F8;
@@ -21,12 +21,13 @@ body {
 }
 
 .tri.active {
+  -webkit-transform:rotateY(90deg) !important;
   
-  border-top-color: #0168ac !important;
 }
 
 .tri {
-  transition: all 0.3s linear;
+  
+  transition: all 0.4s ease-in-out;
   float: left;
   width: 0;
   height: 0;
