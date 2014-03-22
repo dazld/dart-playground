@@ -9,19 +9,24 @@ body {
 }
 
 #tris {
-  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -450px;
+  width: 900px;
+  margin-top: -190px;
 }
 
 .tri {
-float: left;
-width: 30px;
-height: 30px;
-background: rgba(128,192,192,0.9);
--webkit-clip-path: polygon(50% 0,0 86.6%, 100% 86.6%, 50% 0);
-margin-top: -4px;
-margin-right: -15px;
+  float: left;
+  width: 30px;
+  height: 30px;
+  background: rgba(128,192,192,0.9);
+  -webkit-clip-path: polygon(50% 0,0 86.6%, 100% 86.6%, 50% 0);
+  margin-top: -4px;
+  margin-right: -15px;
 }
-.tri:nth-child(13n) {
+x.tri:nth-child(61n) {
   margin-left: -15px;
   clear: left;
 }

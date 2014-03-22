@@ -3,12 +3,12 @@ import 'dart:math';
 
 import 'utils.dart' as utils;
 
-const int DEFAULTWIDTH = 30;
+const int DEFAULTWIDTH = 10;
 
 class Triangle {
   
   int _width = DEFAULTWIDTH;
-  int _height = 30;
+  int _height = 10;
   DivElement el;
   
   Point center;
