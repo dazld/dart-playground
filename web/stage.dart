@@ -14,6 +14,7 @@ class Stage {
   int numTris;
   List <Triangle> tris;
   Timer refresh;
+  Set activeTris;
   
   Stage(selector){
     
@@ -22,6 +23,7 @@ class Stage {
     var totalTris = 120 * 40;
     // per line 120
     this.tris = [];
+    this.activeTris = new Set();
     
     for (int i = 0; i < totalTris; i++){
       var tri = this.makeTri();
@@ -33,7 +35,7 @@ class Stage {
     
     this.refresh = new Timer.periodic(duration, this.update);
     
-    //this.update();
+    this.update();
     
   }
   
@@ -41,17 +43,33 @@ class Stage {
     var now = new DateTime.now();
     var time = now.toString().split(' ')[1].split('.')[0];
     
-    print(time);
-    
-    this.root.querySelectorAll('.active').classes.remove('active');
-    
-    var points = this.getPoints(time);
-    points.forEach((point){
-      var x = point.x;
-      var y = point.y;
-      var idx = y * 120 + x + 25;
-      this.tris[idx].el.classes.add('active');
+   // print(time);
+    window.requestAnimationFrame((i){
+      this.root.querySelectorAll('.active');
+      var freshTris = new Set();  
+      var points = this.getPoints(time);
+      points.forEach((point){
+        var x = point.x;
+        var y = point.y;
+        var idx = y * 120 + x + 25;
+        freshTris.add(this.tris[idx]);
+      });
+      
+      var outdated = this.activeTris.difference(freshTris);
+      
+      outdated.forEach((tri){
+        tri.el.classes.remove('active');
+      });
+      
+      var toUpdate = freshTris.difference(this.activeTris);
+      toUpdate.forEach((tri){
+        tri.el.classes.add('active');
+      });
+      
+      this.activeTris = freshTris;
+      
     });
+    
   }
   
   getPoints (text){

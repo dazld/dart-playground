@@ -18,10 +18,12 @@ body {
 }
 
 .tri.active {
-  background: red;
+  background: rgba(255,32,32,0.9);
+  x-webkit-transform: rotateX(120deg);
 }
 
 .tri {
+  x-webkit-transition: all 1s linear;
   float: left;
   width: 15px;
   height: 15px;
