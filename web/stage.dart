@@ -20,7 +20,7 @@ class Stage {
     
     this.root = querySelector(selector);
     // this.root.style.width = DEFAULTWIDTH * numTris;
-    var totalTris = 120 * 34;
+    var totalTris = 118 * 34 - 20 - 118 -3;
     // per line 120
     this.tris = [];
     this.activeTris = new Set();
