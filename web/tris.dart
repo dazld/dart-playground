@@ -5,6 +5,6 @@ import 'dart:math';
 import 'stage.dart';
 
 main(){
-  var s = new Stage(30, '#tris');
+  var s = new Stage('#tris');
 }
 

@@ -1,6 +1,7 @@
 
 import 'dart:math';
 import 'dart:html';
+import 'dart:async';
 import 'triangle.dart';
 import 'text_measuring_service.dart';
 
@@ -12,39 +13,51 @@ class Stage {
   int height;
   int numTris;
   List <Triangle> tris;
+  Timer refresh;
   
-  Stage(int numTris, selector){
+  Stage(selector){
     
     this.root = querySelector(selector);
     // this.root.style.width = DEFAULTWIDTH * numTris;
-    var totalTris = numTris * numTris + 14;
+    var totalTris = 120 * 40;
     // per line 60
     this.tris = [];
-    this.width = numTris * DEFAULTWIDTH;
+    
     for (int i = 0; i < totalTris; i++){
       var tri = this.makeTri();
       this.tris.add(tri);
       this.root.append(tri.el);
     }
-    this.update();
+    
+    var duration = new Duration(seconds:1);
+    
+    this.refresh = new Timer.periodic(duration, this.update);
+    
+    //this.update();
+    
   }
   
-  update (){
-    var points = this.getPoints('ABCD');
+  update ([delta = null]){
+    var now = new DateTime.now();
+    var time = now.toString().split(' ')[1].split('.')[0];
+    
+    print(time);
+    
+    this.root.querySelectorAll('.active').classes.remove('active');
+    
+    var points = this.getPoints(time);
     points.forEach((point){
       var x = point.x;
       var y = point.y;
-      var idx = y * 60 + x + 1;
-      this.tris[idx].el.style.backgroundColor = 'rgba(32,32,32,0.9)';  
-      
-      
+      var idx = y * 120 + x + 25;
+      this.tris[idx].el.classes.add('active');
     });
   }
   
   getPoints (text){
     
     var tms = new TextMeasuringService(text:text, width:900, height: 130);
-    var points = tms.measure(15);
+    var points = tms.measure(5);
     return points;
     
   }
