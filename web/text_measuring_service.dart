@@ -26,17 +26,22 @@ class TextMeasuringService {
 
   List<Point> measure(int boxSize) {
     List<Point> result = [];
+    
+    List<int> allData = _ctx.getImageData(0, 0, width, height).data;
+    print(allData.length);
 
     for (int i = 0; i * boxSize < width; i++) {
-      for (int j = 0; j * boxSize < width; j++) {
-        List<int> boxData = _ctx.getImageData(i * boxSize, j * boxSize, boxSize,
-            boxSize).data;
+      for (int j = 0; j * boxSize < height; j++) {
+        print('GO: $i, $j');
         int blackPixels = 0;
         int whitePixels = 0;
 
         for (var ix = 0; ix < boxSize; ix++) {
-          var item = boxData[ix * boxSize + 3];
-
+          var itemIndex = 4 * j * width + i * boxSize * 4 + ix * 4 + 3;
+//          var itemIndex = i * j * 4; 
+//          print(itemIndex);
+          var item = allData[itemIndex];
+          
           if (item > 0) {
             blackPixels++;
           } else {

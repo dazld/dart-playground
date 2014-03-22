@@ -20,7 +20,7 @@ class Stage {
     this.root = querySelector(selector);
     // this.root.style.width = DEFAULTWIDTH * numTris;
     var totalTris = 120 * 40;
-    // per line 60
+    // per line 120
     this.tris = [];
     
     for (int i = 0; i < totalTris; i++){
@@ -56,8 +56,8 @@ class Stage {
   
   getPoints (text){
     
-    var tms = new TextMeasuringService(text:text, width:900, height: 130);
-    var points = tms.measure(5);
+    var tms = new TextMeasuringService(text:text, width:900, height: 300);
+    var points = tms.measure(8);
     return points;
     
   }
