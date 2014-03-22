@@ -13,33 +13,33 @@ body {
   top: 50%;
   left: 50%;
   margin-left: -450px;
-  width: 900px;
+  width: 980px;
   margin-top: -260px;
 }
 
 .tri.active {
-  background: rgba(255,32,32,0.9);
-  x-webkit-transform: rotateX(120deg);
+  
+  border-top-color: #0168ac !important;
 }
 
 .tri {
-  x-webkit-transition: all 1s linear;
+  transition: all 0.3s linear;
   float: left;
-  width: 15px;
-  height: 15px;
-  background: rgba(128,192,192,0.9);
-  -webkit-clip-path: polygon(50% 0,0 86.6%, 100% 86.6%, 50% 0);
-  margin-top: -2px;
-  margin-right: -7.5px;
+  width: 0;
+  height: 0;
+  margin-right: -6px;
+  margin-top: 1px;
+  x-webkit-clip-path: polygon(50% 0,0 86.6%, 100% 86.6%, 50% 0);
+  border-top: 15px solid #1cb4a9;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
 }
 .tri:nth-child(121n) {
   margin-left: -7.5px;
   clear: left;
 }
 .tri:nth-child(2n) {
-background: rgba(192,128,192,0.9);
--webkit-transform: rotate(180deg);
-position: relative;
-top: -2px;
+  border-top-color: #1ba8df;
+  -webkit-transform: rotate(180deg);
 }
 
