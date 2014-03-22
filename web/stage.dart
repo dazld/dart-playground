@@ -57,7 +57,7 @@ class Stage {
   getPoints (text){
     
     var tms = new TextMeasuringService(text:text, width:900, height: 300);
-    var points = tms.measure(8);
+    var points = tms.measure(5);
     return points;
     
   }
