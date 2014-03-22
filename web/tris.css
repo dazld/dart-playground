@@ -27,7 +27,7 @@ body {
 
 .tri {
   
-  transition: all 0.4s ease-in-out;
+  transition: all 0.7s ease-in-out;
   float: left;
   width: 0;
   height: 0;
