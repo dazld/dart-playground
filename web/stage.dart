@@ -52,8 +52,14 @@ class Stage {
       refresh = null;
     }
    
-    this.say('   Hello').then((a) => this.say('    Dart')).then((a) => this.say(
-            '      :)')).then((a) => this.startClock());
+    this.say('   Hello')
+        .then((a) => this.say('    Dart'))
+        .then((a) => this.say('      :)'))
+        .then((a) => this.say('  source'))
+        .then((a) => this.say('  on'))
+        .then((a) => this.say('  github!'))
+        .then((a) => this.say('  thx!'))
+        .then((a) => this.startClock());
   }
 
   say(String word) {

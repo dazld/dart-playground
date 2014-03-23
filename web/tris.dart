@@ -1,7 +1,4 @@
 
-import 'dart:html';
-import 'dart:math';
-
 import 'stage.dart';
 
 main(){
